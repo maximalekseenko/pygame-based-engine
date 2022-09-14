@@ -1,4 +1,6 @@
 """API for UI."""
 
-from .variable import *
-from .components import *
+from .components import Act, Scene, Element
+
+from .theatre import Theatre
+Theatre = Theatre()

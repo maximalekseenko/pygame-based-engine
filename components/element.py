@@ -1,9 +1,9 @@
 import pygame
-from typing import overload, Union
+from typing import Union
 
 
 
-from ..variable import variable
+from .. import components
 
 
 
@@ -13,62 +13,15 @@ class Element:
     """
 
 
-    def __init__(self, parent,
-
-            # position and scale
-            x:int, 
-            y:int, 
-            width:int, 
-            height:int,
-
-            # anchor
-            anchor_x:str="left",
-            anchor_y:str="top",
-            self_anchor_x:str="left",
-            self_anchor_y:str="top",
-            ) -> None:
-        """
-        \n Position and Scale.
-        *   `x` - `int` or `str%`. Distance from `parent_anchor_x` to `anchor_x`. 
-        *   `y` - `int` or `str%`. Distance from `parent_anchor_y` to `anchor_y`. 
-        *   `width` - `int` or `str%`. Distance from left to right. 
-        *   `height` - `int` or `str%`. Distance from top to bottom.
-        \n  Anchors to count position from:
-        *   `anchor_x` - Relative to self. Possible values: `"left"`, `"center"`, `"right"`.
-        *   `anchor_y` - Relative to self. Possible values: `"top"`, `"center"`, `"bottom"`.
-        *   `parent_anchor_x` - Relative to parent_rect. Possible values: `"left"`, `"center"`, `"right"`.
-        *   `parent_anchor_y` - Relative to parent_rect. Possible values: `"top"`, `"center"`, `"bottom"`.
-        """
-
-        # set parent surface
-        self.parent = parent
-        '''Parent of this element.'''
+    def __init__(self, scene, rect) -> None:
+        """"""
+        self.scene:components.Scene = scene
 
         # collision rectangle
-        self.rect:pygame.Rect = pygame.Rect(0, 0, 0, 0)
+        self.rect:pygame.Rect = pygame.Rect(rect)
         '''`pygame.Rect` for collision logic.'''
-        
-        # position and scale
-        self._x = x
-        self.Validate_x()
-        self._y = y
-        self.Validate_y()
-        self._width = width
-        self.Validate_width()
-        self._height = height
-        self.Validate_height()
 
-        # anchors
-        self._anchor_x = anchor_x
-        self.Validate_anchor_x()
-        self._anchor_y = anchor_y
-        self.Validate_anchor_y()
-        self._self_anchor_x = self_anchor_x
-        # self.Validate_self_anchor_x()
-        self._self_anchor_y = self_anchor_y
-        # self.Validate_self_anchor_y()
-
-        self.Math_Collision_Rectangle()
+        self.On_Start()
         
 
     # ---------- position and scale ----------
@@ -299,6 +252,8 @@ class Element:
         #     elif self.__anchor_y == "bottom": 
         #         self.rect.bottom = self.rect.y + self.parent.rect.bottom
 
+    def On_Start(self):
+        """"""
 
     def Handle(self, event:pygame.event.Event) -> None:
         """"""
