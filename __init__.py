@@ -2,5 +2,6 @@
 
 from .components import Act, Scene, Element
 
-from .theatre import Theatre
+# theatre
+from .components import Theatre
 Theatre = Theatre()
