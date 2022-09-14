@@ -67,7 +67,7 @@ class Act:
         """
 
     # -----RENDER-----
-    def On_Render(self) -> None:
+    def Render(self) -> None:
         """Renders this act, when it runs.
         \n When writing this function, render all opened scenes.
         """
