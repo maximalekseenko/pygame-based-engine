@@ -4,11 +4,14 @@ from .. import components
 
 
 class Act:
-    """You can write:
-    *   `self.On_Handle`
-    *   `self.On_Render`
-    *   `self.On_Open`
-    *   `self.On_Close`
+    """Act is a big step in your application. for exaple, main menu, game map and game level can be three different acts.
+    \n When writing your act, write next functions:
+    *   `On_Hande` - for handling clicks, keys and other pygame events;
+    *   `On_Render` - for rendering elements this act have.
+    \n You can also take a look at:
+    *   `On_Tick` - for some actions before handleing and rendering.
+    *   `On_Open` - for some variables, that need to be set, before this act appears.
+    *   `On_Close` - for some variables to save at the end.
     """
 
 
