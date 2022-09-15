@@ -30,6 +30,10 @@ class Theatre:
         self._current_act.On_Open()
     
 
+    def Finish(self):
+        self.is_running = False
+
+
     def Begin(self):
 
         # loop
