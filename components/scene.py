@@ -29,6 +29,27 @@ class Scene:
         '''Is this scene opened.'''
 
 
+    # -----UPDATE-----
+    def Update(self):
+        """Update this scene.
+        \n If this scene is closed, does nothing and returns `False`.
+        \n (For codding, use `On_Update`)
+        """
+
+        # if closed
+        if not self.is_opened: return False
+
+        # if opened
+        self.On_Update()
+        return True
+
+    
+    def On_Update(self):
+        """Called to update this scene.
+        \n (For calling, use `Update`)
+        """
+
+
     # -----TICK-----
     def Tick(self, delta:float=0.0) -> None:
         """Does some action for this scene.
