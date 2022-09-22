@@ -16,10 +16,11 @@ class Scene:
     """
 
 
-    def __init__(self, act) -> None:
+    def __init__(self, act, surface:pygame.Surface) -> None:
         """When writing, you can skip super, just add next lines: 
         *   `self.act = act`
         *   `self.is_opened = False`
+        *   `self.surface = surface`
         """
         
         self.act:components.Act = act
@@ -27,6 +28,8 @@ class Scene:
 
         self.is_opened:bool = False
         '''Is this scene opened.'''
+
+        self.surface:pygame.Surface = surface
 
 
     # -----UPDATE-----
@@ -72,7 +75,7 @@ class Scene:
 
 
     # -----RENDER-----
-    def Render(self, target:pygame.Surface) -> None:
+    def Render(self) -> None:
         """Renders this scene's content on `target` pygame.Surface.
         \n If this scene is closed, does nothing and returns `False`.
         \n (For codding, use `On_Render`)
@@ -82,11 +85,11 @@ class Scene:
         if not self.is_opened: return False
 
         # if opened
-        self.On_Render(target)
+        self.On_Render()
         return True
 
 
-    def On_Render(self, target:pygame.Surface) -> None:
+    def On_Render(self) -> None:
         """Called to render this scene's content on `target` surface.
         \n (For calling, use `Render`)
         """
