@@ -17,7 +17,7 @@ class Scene:
     """
 
 
-    def __init__(self, act, base:pygame.Surface | pygame.Rect=None) -> None:
+    def __init__(self, act, base:pygame.Surface|pygame.Rect|None=None) -> None:
         """W 
         \n `act` -
         \n `base` - 
@@ -33,7 +33,8 @@ class Scene:
         self._rect:pygame.Rect
 
         # set surface and rect
-        if type(base) == pygame.Surface: self.surface = base
+        if base == None: self.rect = pygame.Rect(0, 0, 0, 0)
+        elif type(base) == pygame.Surface: self.surface = base
         elif type(base) == pygame.Rect: self.rect = base
         else: raise TypeError("Wrong base type.")
 
