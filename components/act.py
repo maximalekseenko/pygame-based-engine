@@ -23,6 +23,10 @@ class Act:
 
 
 
+    def Update(self):
+        self.On_Update()
+
+    def On_Update(self): pass
 
     # -----OPEN-----
     def Open(self) -> None:
