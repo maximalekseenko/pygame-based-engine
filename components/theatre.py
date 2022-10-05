@@ -31,7 +31,15 @@ class Theatre:
     
 
     def Finish(self):
+        self.On_Finish()
         self.is_running = False
+
+    def On_Finish(self): pass
+
+    def Update(self):
+        self.On_Update()
+
+    def On_Update(self): pass
 
 
     def Begin(self):
