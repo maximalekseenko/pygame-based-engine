@@ -1,3 +1,4 @@
+from typing import Optional
 import pygame
 
 
@@ -16,11 +17,10 @@ class Scene:
     """
 
 
-    def __init__(self, act, surface:pygame.Surface) -> None:
-        """When writing, you can skip super, just add next lines: 
-        *   `self.act = act`
-        *   `self.is_opened = False`
-        *   `self.surface = surface`
+    def __init__(self, act, base:pygame.Surface | pygame.Rect=None) -> None:
+        """W 
+        \n `act` -
+        \n `base` - 
         """
         
         self.act:components.Act = act
@@ -29,7 +29,35 @@ class Scene:
         self.is_opened:bool = False
         '''Is this scene opened.'''
 
-        self.surface:pygame.Surface = surface
+        self._surface:pygame.Surface
+        self._rect:pygame.Rect
+
+        # set surface and rect
+        if type(base) == pygame.Surface: self.surface = base
+        elif type(base) == pygame.Rect: self.rect = base
+        else: raise TypeError("Wrong base type.")
+
+
+    @property
+    def surface(self) -> pygame.Surface:
+        return self._surface
+
+
+    @surface.setter
+    def surface(self, value:pygame.Surface) -> None:
+        self._surface = value
+        self._rect = value.get_rect()
+
+
+    @property
+    def rect(self) -> pygame.Rect:
+        return self._rect
+
+
+    @rect.setter
+    def rect(self, value:pygame.Rect) -> None:
+        self._rect = value
+        self._surface = pygame.Surface(value.size)
 
 
     # -----UPDATE-----
