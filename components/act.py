@@ -86,6 +86,7 @@ class Act:
     # -----TICK-----
     def Tick(self) -> None:
         """"""
+        self.On_Tick()
 
     def On_Tick(self) -> None:
         """"""

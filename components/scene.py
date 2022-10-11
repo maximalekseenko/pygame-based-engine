@@ -83,7 +83,7 @@ class Scene:
 
 
     # -----TICK-----
-    def Tick(self, delta:float=0.0) -> None:
+    def Tick(self) -> None:
         """Does some action for this scene.
         \n If this scene is closed, does nothing and returns `False`.
         \n (For codding, use `On_Tick`)
@@ -93,11 +93,11 @@ class Scene:
         if not self.is_opened: return False
 
         # if opened
-        self.On_Tick(delta)
+        self.On_Tick()
         return True
 
 
-    def On_Tick(self, delta:float=0.0) -> None:
+    def On_Tick(self) -> None:
         """Called for making some actions for the scene.
         \n (For calling, use `Tick`)
         """
