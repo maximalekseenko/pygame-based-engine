@@ -112,7 +112,7 @@ class Element:
         \n If this scene is closed, does nothing and returns `False`.
         \n (For codding, use `On_Handle`)
         """
-        
+
         self.On_Handle(event)
         return True
 

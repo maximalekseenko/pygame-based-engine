@@ -61,6 +61,19 @@ class Scene:
         self._surface = pygame.Surface(value.size)
 
 
+    def Global(self, point:tuple[int,int]|list[int]):
+        return (
+            point[0] + self.rect.left,
+            point[1] + self.rect.top,
+        )
+
+    def Relative(self, point:tuple[int,int]|list[int]):
+        return (
+            point[0] - self.rect.left,
+            point[1] - self.rect.top,
+        )
+
+
     # -----UPDATE-----
     def Update(self):
         """Update this scene.
