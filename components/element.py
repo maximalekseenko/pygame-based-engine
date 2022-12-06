@@ -90,17 +90,17 @@ class Element:
 
 
     # -----RENDER-----
-    def Render(self, target:pygame.Surface) -> None:
+    def Render(self) -> None:
         """Renders this scene's content on `target` pygame.Surface.
         \n If this scene is closed, does nothing and returns `False`.
         \n (For codding, use `On_Render`)
         """
 
-        self.On_Render(target)
+        self.On_Render()
         return True
 
 
-    def On_Render(self, target:pygame.Surface) -> None:
+    def On_Render(self) -> None:
         """Called to render this scene's content on `target` surface.
         \n (For calling, use `Render`)
         """
