@@ -38,6 +38,8 @@ class Scene:
         elif type(base) == pygame.Rect: self.rect = base
         else: raise TypeError("Wrong base type.")
 
+        self.On_Init()
+
 
     @property
     def surface(self) -> pygame.Surface:
@@ -72,6 +74,10 @@ class Scene:
             point[0] - self.rect.left,
             point[1] - self.rect.top,
         )
+
+    
+    def On_Init(self) -> None: 
+        pass
 
 
     # -----UPDATE-----
